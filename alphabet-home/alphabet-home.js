@@ -183,27 +183,23 @@ class AlphabetHome extends HTMLElement {
     }
     var letterToFindAudio = new Audio ('./audio/Where_is_the_letter_' + correctLetter + '.mp3');
     letterToFindAudio.play();
+    var self = this;
 
     top.addEventListener("click",e => {
+      console.log('event details', e);
       console.log('top letter clicked');
       topAudio.play();
-      setTimeout(function() {
-        this.evaluateClick(letters, 'top');
-      }, 2000);
+      setTimeout(function() {self.evaluateClick(letters, 'top'); }, 1000);
     });
     middle.addEventListener("click",e => {
       console.log('middle letter clicked');
       middleAudio.play();
-      setTimeout(function() {
-        this.evaluateClick(letters, 'middle');
-      }, 2000);
+      setTimeout(function() {self.evaluateClick(letters, 'middle'); }, 1000);
     });
     bottom.addEventListener("click",e => {
       console.log('bottom letter clicked');
       bottomAudio.play();
-      setTimeout(function() {
-        this.evaluateClick(letters, 'bottom');
-      }, 2000);
+      setTimeout(function() { self.evaluateClick(letters, 'bottom'); }, 1000);
     });
 
   }
