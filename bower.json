@@ -1,0 +1,20 @@
+{
+  "name": "ellies_alphabet",
+  "description": "A simple game to help my daughter learn her alphabet letters",
+  "main": "index.html",
+  "authors": [
+    "Jeffrey B. Daube"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/daubejb/ellies_alphabet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^1.0.10"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Ellie's Alphabet",
+  "short_name": "Ellie's Alphabet",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#6b8e23",
+  "background_color": "#f5f5f5",
+  "icons": [
+    {
+      "src": "images/manifest/daubedesign-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/manifest/daubedesign-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

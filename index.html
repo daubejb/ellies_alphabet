@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>Ellie's Alphabet</title>
+    <meta name="description" content="A simple game to help my daughter learn her alphabet letters">
+    <link rel="icon" href="/images/daubedesign.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#6b8e23">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Ellie's Alphabet">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ellie's Alphabet">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="/images/manifest/daubedesign-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/daubedesign-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/daubedesign-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/daubedesign-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/daubedesign-192x192.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/images/manifest/daubedesign-144x144.png">
+    <meta name="msapplication-TileColor" content="#6b8e23">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Load Custom Elements es5 adapter -->
+    <script src="./custom-elements-es5-adapter.js"></script>
+    <!-- Load polyfills; note that "loader" will load these async -->
+    <script src="./webcomponents-loader.js"></script>
+    <script>
+      window.addEventListener('WebComponentsReady', function() {
+        var imported = document.createElement('script');
+        imported.src = './alphabet-home-compiled.js';
+        imported.type = 'text/javascript';
+        document.head.appendChild(imported);
+        var imported2 = document.createElement('script');
+        imported2.src = './daube-header-fixed-compiled.js';
+        imported2.type = 'text/javascript';
+        document.head.appendChild(imported2);
+        var imported3 = document.createElement('script');
+        imported3.src = './daube-main-container-compiled.js';
+        imported3.type = 'text/javascript';
+        document.head.appendChild(imported3);
+        var imported4 = document.createElement('script');
+        imported4.src = './daube-card-compiled.js';
+        imported4.type = 'text/javascript';
+        document.head.appendChild(imported4);
+      });
+    </script>
+    <style>
+      html, body {
+        min-height: 100vh;
+      }
+      body {
+        margin: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        height: 100%;
+        min-height: 100vh;
+        background-color: whitesmoke;
+      }
+      /* styling for render while resources are loading */
+      .splash {
+        display: block;
+        text-align: center;
+        font-weight: 300;
+        font-size: 18px;
+        color: #292F36;
+        max-width: 400px;
+        margin: auto;
+        padding-top: 10%;
+        z-index: 0;
+      }
+      .header {
+        height: 350px;
+        overflow: hidden;
+      }
+      .footer {
+        font-size: 13px;
+      }
+      a:link, a:visited {
+        color: #474448 ;
+        /* TODO come up with a better Link / focus color */
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .maintitle {
+        font-size: 3.8em;
+        font-weight: 200;
+        color: #6b8e23;
+      }
+      .loading {
+        animation: blink 1.5s linear infinite;
+        -o-animation: blink 1.5s linear infinite;
+        -moz-animation: blink 1.5s linear infinite;
+        -webkit-animation: blink 1.5s linear infinite;
+      }
+      @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+      @-webkit-keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+      @-moz-keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+      @-o-keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+
+    </style>
+    </head>
+    <body>
+      <alphabet-home>
+        <slot>
+          <div class="splash">
+            <div class="header">
+              <div class="maintitle">Ellie's Alphabet</div>
+                <p role="main">A simple game to help my daughter learn her alphabet letters</p>
+                <br>
+                <p id="loading" class="loading">The Alphabet is Loading... ⏳</p>
+              </div>
+            <p class="footer">Created by <a href="https://twitter.com/jeffdaube">Jeffrey B. Daube</a>.
+              Find this code on <a href="https://github.com/daubejb/room">GitHub</a>.</p>
+          </div>
+        </slot>
+      </alphabet-home>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCEdfc2xGBHTn7TfKZrd3AbUvYnpv5KvRQ",
+        authDomain: "ellies-alphabet.firebaseapp.com",
+        databaseURL: "https://ellies-alphabet.firebaseio.com",
+        projectId: "ellies-alphabet",
+        storageBucket: "ellies-alphabet.appspot.com",
+        messagingSenderId: "706192238283"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script>
+      // Load pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          console.log('registering service worker...')
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+  </html>
