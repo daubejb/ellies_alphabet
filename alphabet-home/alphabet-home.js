@@ -274,14 +274,38 @@ class AlphabetHome extends HTMLElement {
     var correctAudio = new Audio('./audio/' + 'Good_job' + '.mp3');
     var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
     var correct = letters.selection;
-    if (choice == correct) {
-      
+    var topcard = this.shadowRoot.querySelector('#topcard');
+    var middlecard = this.shadowRoot.querySelector('#middlecard');
+    var bottomcard = this.shadowRoot.querySelector('#bottomcard');
+    if (choice === correct) {
       correctAudio.play();
+      switch(choice) {
+        case 'top':
+          topcard.setAttribute('cardcolor', '#00ff00');
+          break;
+        case 'middle':
+          middlecard.setAttribute('cardcolor', '#00ff00');
+          break;
+        case 'bottom':
+          bottomcard.setAttribute('cardcolor', '#00ff00');
+          break;
+      }
     } else {
       incorrectAudio.play();
+      switch(choice) {
+        case 'top':
+          topcard.setAttribute('cardcolor', '#ff0000');
+          break;
+        case 'middle':
+          middlecard.setAttribute('cardcolor', '#ff0000');
+          break;
+        case 'bottom':
+          bottomcard.setAttribute('cardcolor', '#ff0000');
+          break;
+      }
     }
 
-
+    
   }
 
 } // Class CustomElement
