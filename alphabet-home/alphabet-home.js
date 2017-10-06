@@ -133,7 +133,7 @@ class AlphabetHome extends HTMLElement {
     });
     var logoutbtn = this.shadowRoot.querySelector('#logout');
     logoutbtn.addEventListener("click",e => {
-      console.log('login button clicked');
+      console.log('logout button clicked');
       this.googleLogout();
     });
   }
@@ -155,53 +155,8 @@ class AlphabetHome extends HTMLElement {
         home.style.display = 'none';
       }
     });
-
-    var letters = this.getRandLetters();
-    console.log(letters);
-    var top = this.shadowRoot.querySelector('#topletter');
-    var middle = this.shadowRoot.querySelector('#middleletter');
-    var bottom = this.shadowRoot.querySelector('#bottomletter');
-
-    top.innerHTML = letters.top;
-    middle.innerHTML = letters.middle;
-    bottom.innerHTML = letters.bottom;
-
-    var topAudio = new Audio('./audio/' + letters.top + '.mp3');
-    var middleAudio = new Audio('./audio/' + letters.middle + '.mp3');
-    var bottomAudio = new Audio('./audio/' + letters.bottom + '.mp3');
-    var correctLetter = '';
-    switch(letters.selection) {
-      case 'top':
-        correctLetter = letters.top;
-        break;
-      case 'middle':
-        correctLetter = letters.middle;
-        break;
-      case 'bottom':
-        correctLetter = letters.bottom;
-        break;
-    }
-    var letterToFindAudio = new Audio ('./audio/Where_is_the_letter_' + correctLetter + '.mp3');
-    letterToFindAudio.play();
     var self = this;
-
-    top.addEventListener("click",e => {
-      console.log('event details', e);
-      console.log('top letter clicked');
-      topAudio.play();
-      setTimeout(function() {self.evaluateClick(letters, 'top'); }, 1000);
-    });
-    middle.addEventListener("click",e => {
-      console.log('middle letter clicked');
-      middleAudio.play();
-      setTimeout(function() {self.evaluateClick(letters, 'middle'); }, 1000);
-    });
-    bottom.addEventListener("click",e => {
-      console.log('bottom letter clicked');
-      bottomAudio.play();
-      setTimeout(function() { self.evaluateClick(letters, 'bottom'); }, 1000);
-    });
-
+    this.generateQuestion(self);
   }
 
   googleLogin() {
@@ -220,7 +175,6 @@ class AlphabetHome extends HTMLElement {
         // ...
       });
   }
-
   googleLogout() {
     console.log('User requested to log out');
     firebase.auth().signOut().then(function() {
@@ -229,8 +183,16 @@ class AlphabetHome extends HTMLElement {
       console.log('Error occured');
     });
   }
-
-  getRandLetters() {
+  generateQuestion(self) {
+    var letters = this.brainGetRandomLetters();
+    var positions = this.uiDisplayLetters(letters);
+    var media = this.brainPrepareLetterAudio(letters);
+    var correctLetter = this.brainDetermineCorrectLetter(letters);
+    var letterToFindAudio = new Audio ('./audio/Where_is_the_letter_' + correctLetter + '.mp3');
+    letterToFindAudio.play();
+    this.uiCreateEventListeners(self, positions, media, letters);
+  }
+  brainGetRandomLetters() {
     var top = this.getOneRandomLetter();
     var middle = this.getOneRandomLetter();
     var bottom = this.getOneRandomLetter();
@@ -258,12 +220,42 @@ class AlphabetHome extends HTMLElement {
         selection = 'bottom';
         break;
     }
-    var values = new Array();
-    values['top'] = t;
-    values['middle'] = m;
-    values['bottom'] = b;
-    values['selection'] = selection;
-    return values;
+    var letters = {
+      'top': t,
+      'middle': m,
+      'bottom': b,
+      'selection': selection
+    }
+    return letters;
+
+  }
+
+  brainDetermineCorrectLetter(letters) {
+    var correctLetter = '';
+    switch(letters.selection) {
+      case 'top':
+        correctLetter = letters.top;
+        break;
+      case 'middle':
+        correctLetter = letters.middle;
+        break;
+      case 'bottom':
+        correctLetter = letters.bottom;
+        break;
+    }
+    return correctLetter;
+  }
+
+  brainPrepareLetterAudio(letters) {
+    var topAudio = new Audio('./audio/' + letters.top + '.mp3');
+    var middleAudio = new Audio('./audio/' + letters.middle + '.mp3');
+    var bottomAudio = new Audio('./audio/' + letters.bottom + '.mp3');
+    var media = {
+      'topAudio': topAudio,
+      'middleAudio': middleAudio,
+      'bottomAudio': bottomAudio
+    }
+    return media;
   }
 
   getOneRandomLetter() {
@@ -271,41 +263,71 @@ class AlphabetHome extends HTMLElement {
   }
 
   evaluateClick(letters, choice) {
-    var correctAudio = new Audio('./audio/' + 'Good_job' + '.mp3');
-    var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
     var correct = letters.selection;
+    if (choice === correct) {
+      var color = '#00ff00';
+      var correctAudio = new Audio('./audio/' + 'Good_job' + '.mp3');
+      this.uiChangeSelectionColor(choice, letters, color, correctAudio);
+    } else {
+      var color = '#ff0000';
+      var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
+      this.uiChangeSelectionColor(choice, letters, color, incorrectAudio);
+    }
+
+  }
+  uiGetPositions() {
+    var top = this.shadowRoot.querySelector('#topletter');
+    var middle = this.shadowRoot.querySelector('#middleletter');
+    var bottom = this.shadowRoot.querySelector('#bottomletter');
+    var positions = {
+      'top': top,
+      'middle': middle,
+      'bottom': bottom
+    }
+    return positions;
+  }
+  uiDisplayLetters(letters) {
+    var positions = this.uiGetPositions()
+
+    positions.top.innerHTML = letters.top;
+    positions.middle.innerHTML = letters.middle;
+    positions.bottom.innerHTML = letters.bottom;
+    return positions;
+  }
+  uiChangeSelectionColor(choice, letters, color, correctAudio) {
     var topcard = this.shadowRoot.querySelector('#topcard');
     var middlecard = this.shadowRoot.querySelector('#middlecard');
     var bottomcard = this.shadowRoot.querySelector('#bottomcard');
-    if (choice === correct) {
-      correctAudio.play();
-      switch(choice) {
-        case 'top':
-          topcard.setAttribute('cardcolor', '#00ff00');
-          break;
-        case 'middle':
-          middlecard.setAttribute('cardcolor', '#00ff00');
-          break;
-        case 'bottom':
-          bottomcard.setAttribute('cardcolor', '#00ff00');
-          break;
-      }
-    } else {
-      incorrectAudio.play();
-      switch(choice) {
-        case 'top':
-          topcard.setAttribute('cardcolor', '#ff0000');
-          break;
-        case 'middle':
-          middlecard.setAttribute('cardcolor', '#ff0000');
-          break;
-        case 'bottom':
-          bottomcard.setAttribute('cardcolor', '#ff0000');
-          break;
-      }
+    correctAudio.play();
+    switch(choice) {
+      case 'top':
+        topcard.setAttribute('cardcolor', color);
+        break;
+      case 'middle':
+        middlecard.setAttribute('cardcolor', color);
+        break;
+      case 'bottom':
+        bottomcard.setAttribute('cardcolor', color);
+        break;
     }
-
-    
+  }
+  uiCreateEventListeners(self, positions, media, letters) {
+    positions.top.addEventListener("click",e => {
+      console.log('event details', e);
+      console.log('top letter clicked');
+      media.topAudio.play();
+      setTimeout(function() {self.evaluateClick(letters, 'top'); }, 1000);
+    });
+    positions.middle.addEventListener("click",e => {
+      console.log('middle letter clicked');
+      media.middleAudio.play();
+      setTimeout(function() {self.evaluateClick(letters, 'middle'); }, 1000);
+    });
+    positions.bottom.addEventListener("click",e => {
+      console.log('bottom letter clicked');
+      media.bottomAudio.play();
+      setTimeout(function() { self.evaluateClick(letters, 'bottom'); }, 1000);
+    });
   }
 
 } // Class CustomElement
