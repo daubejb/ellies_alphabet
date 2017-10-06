@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "91a58b68f0dcf1cde9b5618572b3f0d8"
+    "revision": "651b6700334a1acc49ad9332beec2ec6"
   },
   {
     "url": "audio/A.mp3",
@@ -264,7 +264,11 @@ const fileManifest = [
   },
   {
     "url": "daube-main-container-compiled.js",
-    "revision": "842932bb027b85696bfece9cae28edeb"
+    "revision": "b0d835d1fd2ec9dc1337a83739537ecd"
+  },
+  {
+    "url": "daube-modal-compiled.js",
+    "revision": "c1736c26cacd8fe4cbc14f973962336d"
   },
   {
     "url": "images/daubedesign.ico",
@@ -296,7 +300,7 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "9986758c2dd71464c429e7819f39d3ec"
+    "revision": "d6e665c9de76fe5b4060de87830fa223"
   },
   {
     "url": "manifest.json",

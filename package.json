@@ -19,7 +19,8 @@
   "dependencies": {
     "daube-card": "^0.1.4",
     "daube-header-fixed": "0.0.5",
-    "daube-main-container": "0.0.5"
+    "daube-main-container": "0.0.6",
+    "daube-modal": "0.1.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

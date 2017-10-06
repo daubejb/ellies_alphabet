@@ -100,6 +100,10 @@ template.innerHTML = `
     <daube-header-fixed headertitle="Ellie's Alphabet">
       <span id="logout">LOGOUT</span>
     </daube-header-fixed>
+    <daube-modal>
+      <button class="secondary" slot="negative">Exit</button>
+      <button class="primary" slot="positive">Play again</button>
+    </daube-modal>
     <daube-main-container>
       <daube-card id="topcard">
         <div id="topletter" class="letter">A</div>
@@ -145,18 +149,19 @@ class AlphabetHome extends HTMLElement {
 
     var signin = this.shadowRoot.querySelector("#signin");
     var home = this.shadowRoot.querySelector("#home");
+    var self = this;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         signin.style.display = 'none';
         home.style.display = 'block';
+        
+        self.generateQuestion(self);
       } else {
         console.log('user is not authenticated');
         signin.style.display = 'block';
         home.style.display = 'none';
       }
     });
-    var self = this;
-    this.generateQuestion(self);
   }
 
   googleLogin() {
@@ -192,6 +197,7 @@ class AlphabetHome extends HTMLElement {
     letterToFindAudio.play();
     this.uiCreateEventListeners(self, positions, media, letters);
   }
+  
   brainGetRandomLetters() {
     var top = this.getOneRandomLetter();
     var middle = this.getOneRandomLetter();
@@ -275,6 +281,7 @@ class AlphabetHome extends HTMLElement {
     }
 
   }
+
   uiGetPositions() {
     var top = this.shadowRoot.querySelector('#topletter');
     var middle = this.shadowRoot.querySelector('#middleletter');
@@ -286,6 +293,7 @@ class AlphabetHome extends HTMLElement {
     }
     return positions;
   }
+
   uiDisplayLetters(letters) {
     var positions = this.uiGetPositions()
 
@@ -294,6 +302,7 @@ class AlphabetHome extends HTMLElement {
     positions.bottom.innerHTML = letters.bottom;
     return positions;
   }
+
   uiChangeSelectionColor(choice, letters, color, correctAudio) {
     var topcard = this.shadowRoot.querySelector('#topcard');
     var middlecard = this.shadowRoot.querySelector('#middlecard');
@@ -311,6 +320,7 @@ class AlphabetHome extends HTMLElement {
         break;
     }
   }
+
   uiCreateEventListeners(self, positions, media, letters) {
     positions.top.addEventListener("click",e => {
       console.log('event details', e);

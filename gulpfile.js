@@ -66,6 +66,13 @@ gulp.task('compile-daube-card', () => {
     .pipe(gulp.dest('./public'));
 });
 
+gulp.task('compile-daube-modal', () => {
+  return gulp.src(['./node_modules/daube-modal/daube-modal-compiled.js'])
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(gulp.dest('./public'));
+});
+
 gulp.task('move-es5', () => {
   return gulp.src(['./bower_components/webcomponentsjs/custom-elements-es5-adapter.js'])
     .pipe(gulp.dest('./public'));
@@ -93,6 +100,7 @@ gulp.task('default',
               'compile-daube-header-fixed',
               'compile-daube-main-container',
               'compile-daube-card',
+              'compile-daube-modal',
               'move-es5',
               'move-loader',
               'createServiceWorker')
