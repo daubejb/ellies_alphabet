@@ -272,15 +272,15 @@ const fileManifest = [
   },
   {
     "url": "images/apple.png",
-    "revision": "86cab9cd2c3c6136cb9eaf17cba6c786"
+    "revision": "f3dae4bc5bf73d34537d5e6abe124499"
   },
   {
     "url": "images/bananas.png",
-    "revision": "fdd9b982b093c0d148cf3fa504f3de9c"
+    "revision": "b03995102853abbf614139cbfac5c266"
   },
   {
     "url": "images/carrots.png",
-    "revision": "9985a0ec68e3cfead7cd1fb581a456a9"
+    "revision": "895d197ba1e60b1c7c4aab5e020a28ea"
   },
   {
     "url": "images/daubedesign.ico",
@@ -288,119 +288,119 @@ const fileManifest = [
   },
   {
     "url": "images/dog.png",
-    "revision": "55c5121ea58119a4d033ddd1a2d547b6"
+    "revision": "5c920bb8cec1067dd797e51db7a11e5c"
   },
   {
     "url": "images/elephant.png",
-    "revision": "6dff63cc0a646d6c217647b3b2862d0b"
+    "revision": "7d6bb70b1f4635acada6a16d0a515df0"
   },
   {
     "url": "images/frog.png",
-    "revision": "140a259a554ab216ff98f0c1f6902176"
+    "revision": "70b9ddaa11664a849003faf74db22f51"
   },
   {
     "url": "images/giraffe.png",
-    "revision": "de12d5f83703abb776cbdf548ff3897b"
+    "revision": "1eec9312402bb27a45825de2b670560d"
   },
   {
     "url": "images/hat.png",
-    "revision": "911a7063c0a6958d52ae519f31750f51"
+    "revision": "61c9c818a3300d29279878ba1bf2ca3e"
   },
   {
     "url": "images/ice_cream_cone.png",
-    "revision": "0485d16974dd3f70ddb3ba02ba9682d4"
+    "revision": "1a79cfde7439208279a7ecf74c45bf7f"
   },
   {
     "url": "images/jar.png",
-    "revision": "3d274ecbff877c981d5cc59ff2c9898f"
+    "revision": "38abdbf6b4ad046ec88bf264c1a6582d"
   },
   {
     "url": "images/key.png",
-    "revision": "ad2fb3a02d88c3ba5f2c5b3c2820a433"
+    "revision": "9d6432f280b2c82bd91f0caea83af60f"
   },
   {
     "url": "images/light_bulb.png",
-    "revision": "af9ec8df5e2b2038ec47f7485b10d64c"
+    "revision": "bab2e4cde99de0aec9ef9fdf5f2352b8"
   },
   {
     "url": "images/manifest/daubedesign-144x144.png",
-    "revision": "d851bfbbde0c69fd55d2bda6a9029780"
+    "revision": "21ea699f2983284c68587b23d160d01a"
   },
   {
     "url": "images/manifest/daubedesign-192x192.png",
-    "revision": "0d48fe25d41ac2525e700253079c77bd"
+    "revision": "df3aa9154f3fba74ce72fdcddbbee1f4"
   },
   {
     "url": "images/manifest/daubedesign-48x48.png",
-    "revision": "b3a2ade5ce8c2dde247bd6309e8b28f9"
+    "revision": "7a96e5276986699d41d7172cdf69298c"
   },
   {
     "url": "images/manifest/daubedesign-512x512.png",
-    "revision": "a9acaf6158ddae45bacbb1fe9a1e2aea"
+    "revision": "03033e1a83fe2d17015c123984cdb080"
   },
   {
     "url": "images/manifest/daubedesign-72x72.png",
-    "revision": "7d7818d22bb0917954b810ceb36df923"
+    "revision": "0efd06d9c208888fd7946a1200769b5a"
   },
   {
     "url": "images/manifest/daubedesign-96x96.png",
-    "revision": "42c8b57174ff192635100bf0115651d5"
+    "revision": "5a9ea3135f7296b7905212ef6e288610"
   },
   {
     "url": "images/monkey.png",
-    "revision": "44305fc933b17f37308d56fcdc72e75c"
+    "revision": "9592f7377ade878aca9b2fd0e42dfcd6"
   },
   {
     "url": "images/napkins.png",
-    "revision": "873b97c589395bab393f370608634bb6"
+    "revision": "be794ce8a66c57215e2781691dc6fe00"
   },
   {
     "url": "images/owl.png",
-    "revision": "9681b898497bab65f8ee04ae25524f57"
+    "revision": "3560ba338f8036135f7c9ac85a8ddcad"
   },
   {
     "url": "images/pencil.png",
-    "revision": "39a86e17c7d48e79061ecae1071d56f0"
+    "revision": "d1bb53c5d6563edaa63db8588e077602"
   },
   {
     "url": "images/queen.png",
-    "revision": "2035a21d65b92ed5cc5ff112beb243ab"
+    "revision": "02a39ad8668f87fc2fc16f28c84c514b"
   },
   {
     "url": "images/roses.png",
-    "revision": "6fe09ddd99482ebf17913b4a92187628"
+    "revision": "ef37fe407fed41db8847ce3eb40adecb"
   },
   {
     "url": "images/salad.png",
-    "revision": "3a413a1fc2ce789a025a192f3fb78ec0"
+    "revision": "34d87bd19b380884c649257b0865c810"
   },
   {
     "url": "images/turtle.png",
-    "revision": "a068eac929aad257391e22db4b3b1012"
+    "revision": "3865fb44c3515c890c73612791728b23"
   },
   {
     "url": "images/umbrella.png",
-    "revision": "43fd2802a28ed08c547e85672abe74dd"
+    "revision": "976834e82cefd8baf28692992aea38dc"
   },
   {
     "url": "images/vase.png",
-    "revision": "398b28aa8c9fa3cbaf872cbfdbb10d18"
+    "revision": "e2e27359bc87b91099f70c85f7b344db"
   },
   {
     "url": "images/watermelon.png",
-    "revision": "2c9e30e82144e8f78ce10966c91a1d7c"
+    "revision": "ccaf2bad093b2297e4427fb04e1e4662"
   },
   {
     "url": "images/xylophone.png",
-    "revision": "44013d8a567194cf0ee7d5e043fecd0c"
+    "revision": "e6f3a22b8dbc72fd8aadefd5d1a6847b"
   },
   {
     "url": "images/yarn.png",
-    "revision": "2363ceca1968787ffb49a64f2275d443"
+    "revision": "b609774100b969272c1afa1f08d1a51b"
   },
   {
     "url": "images/zebra.png",
-    "revision": "9bdc33533b6b1919b3c3ae639bdda9f6"
+    "revision": "6afc043fcd05cbb17164f71f8ed90dfe"
   },
   {
     "url": "index.html",

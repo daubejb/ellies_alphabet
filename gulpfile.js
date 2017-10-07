@@ -6,6 +6,7 @@ const rename = require('gulp-rename');
 const del = require('del');
 const exec = require('child_process').exec;
 const ifEnv = require('gulp-if-env');
+const imagemin = require('gulp-imagemin');
 
 ifEnv.set('production');
 
@@ -20,6 +21,7 @@ gulp.task('static', () => {
 
 gulp.task('images', () => {
   return gulp.src(['./images/**/*'])
+    .pipe(ifEnv('production',imagemin()))
     .pipe(gulp.dest('./public/images'));
 })
 
