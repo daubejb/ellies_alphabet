@@ -61,7 +61,7 @@ template.innerHTML = `
     max-height: 75%;
     width: auto;
     height: auto;
-    margin: 0 auto;
+    margin: auto;
   }
 
   #logout {
