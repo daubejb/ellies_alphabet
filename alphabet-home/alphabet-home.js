@@ -51,11 +51,6 @@ template.innerHTML = `
   .btn:hover {
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
-  button.secondary {
-    background-color: #585858;
-    border-color: #585858;
-    float: right;
-  }
   button.primary {
     float: right;
   }
@@ -86,7 +81,7 @@ template.innerHTML = `
 
   </style>
 
-  <div class="signin-view" id="signin">
+  <div class="signin-view" id="signin" style="display:none">
     <div class="header">
         <div class="maintitle">Ellie's Alphabet</div>
         <p role="main">A simple game to help my daughter learn her alphabet letters</p>
@@ -100,9 +95,8 @@ template.innerHTML = `
     <daube-header-fixed headertitle="Ellie's Alphabet">
       <span id="logout">LOGOUT</span>
     </daube-header-fixed>
-    <daube-modal>
-      <button class="secondary" slot="negative">Exit</button>
-      <button class="primary" slot="positive">Play again</button>
+    <daube-modal id="daubemodal">
+      <button class="primary" slot="positive" id="primary">Play again</button>
     </daube-modal>
     <daube-main-container>
       <daube-card id="topcard">
@@ -154,8 +148,7 @@ class AlphabetHome extends HTMLElement {
       if (user) {
         signin.style.display = 'none';
         home.style.display = 'block';
-        
-        self.generateQuestion(self);
+        self.generateQuestion();
       } else {
         console.log('user is not authenticated');
         signin.style.display = 'block';
@@ -188,16 +181,17 @@ class AlphabetHome extends HTMLElement {
       console.log('Error occured');
     });
   }
-  generateQuestion(self) {
+  generateQuestion() {
     var letters = this.brainGetRandomLetters();
     var positions = this.uiDisplayLetters(letters);
     var media = this.brainPrepareLetterAudio(letters);
     var correctLetter = this.brainDetermineCorrectLetter(letters);
     var letterToFindAudio = new Audio ('./audio/Where_is_the_letter_' + correctLetter + '.mp3');
     letterToFindAudio.play();
-    this.uiCreateEventListeners(self, positions, media, letters);
+    letterToFindAudio = '';
+    this.uiCreateEventListeners(positions, media, letters);
   }
-  
+
   brainGetRandomLetters() {
     var top = this.getOneRandomLetter();
     var middle = this.getOneRandomLetter();
@@ -264,22 +258,54 @@ class AlphabetHome extends HTMLElement {
     return media;
   }
 
+  brainGetRandomMessage() {
+    var num = Math.floor(Math.random()*(4-1+1)+1);
+    var message = '';
+    switch (num) {
+      case 1:
+        message = 'Excellent';
+        break;
+      case 2:
+        message = 'Correct';
+        break;
+      case 3:
+        message = 'Good_job';
+        break;
+      case 4:
+        message = 'Nice_work';
+        break;
+    }
+    return message;
+  }
+
   getOneRandomLetter() {
     return String.fromCharCode(Math.floor(Math.random() * (122 - 97)) + 97);
   }
 
-  evaluateClick(letters, choice) {
+  evaluateClick(letters, choice, positions, media) {
     var correct = letters.selection;
     if (choice === correct) {
       var color = '#00ff00';
-      var correctAudio = new Audio('./audio/' + 'Good_job' + '.mp3');
+      var message = this.brainGetRandomMessage();
+      var correctAudio = new Audio('./audio/' + message + '.mp3');
       this.uiChangeSelectionColor(choice, letters, color, correctAudio);
+      this.resetAll(positions, media, letters);
+      this.uiDisplayModal();
     } else {
       var color = '#ff0000';
       var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
       this.uiChangeSelectionColor(choice, letters, color, incorrectAudio);
     }
 
+  }
+  resetAll(positions, media, letters) {
+    media.topAudio = '';
+    media.middleAudio = '';
+    media.bottomAudio = '';
+    positions.top.outerHTML = positions.top.outerHTML;
+    positions.middle.outerHTML = positions.middle.outerHTML;
+    positions.bottom.outerHTML = positions.bottom.outerHTML;
+    letters = {};
   }
 
   uiGetPositions() {
@@ -321,23 +347,45 @@ class AlphabetHome extends HTMLElement {
     }
   }
 
-  uiCreateEventListeners(self, positions, media, letters) {
-    positions.top.addEventListener("click",e => {
-      console.log('event details', e);
-      console.log('top letter clicked');
-      media.topAudio.play();
-      setTimeout(function() {self.evaluateClick(letters, 'top'); }, 1000);
-    });
-    positions.middle.addEventListener("click",e => {
-      console.log('middle letter clicked');
-      media.middleAudio.play();
-      setTimeout(function() {self.evaluateClick(letters, 'middle'); }, 1000);
-    });
-    positions.bottom.addEventListener("click",e => {
-      console.log('bottom letter clicked');
-      media.bottomAudio.play();
-      setTimeout(function() { self.evaluateClick(letters, 'bottom'); }, 1000);
-    });
+  uiResetColors() {
+    this.shadowRoot.querySelector('#topcard').setAttribute('cardcolor', '#ffffff');
+    this.shadowRoot.querySelector('#middlecard').setAttribute('cardcolor', '#ffffff');
+    this.shadowRoot.querySelector('#bottomcard').setAttribute('cardcolor', '#ffffff');
+  }
+
+  uiCreateEventListeners(positions, media, letters) {
+    var self = this;
+    positions.top.addEventListener('click', e => { self.uiTopClicked(positions, media, letters); });
+    positions.middle.addEventListener('click', e => { self.uiMiddleClicked(positions, media, letters); });
+    positions.bottom.addEventListener('click', e => { self.uiBottomClicked(positions, media, letters); });
+    var modalPlayAgainButton = this.shadowRoot.querySelector('#primary');
+    modalPlayAgainButton.addEventListener('click', e => {
+      this.uiResetColors();
+      this.generateQuestion();
+    }, {once: true});
+  }
+
+  uiDisplayModal() {
+    var modal = this.shadowRoot.querySelector('#daubemodal');
+    modal.setAttribute('display','');
+  }
+
+  uiTopClicked (positions, media, letters) {
+    var self = this;
+    media.topAudio.play();
+    setTimeout(function() { self.evaluateClick(letters, 'top', positions, media); }, 1000);
+  }
+
+  uiMiddleClicked(positions, media, letters) {
+    var self = this;
+    media.middleAudio.play();
+    setTimeout(function() { self.evaluateClick(letters, 'middle', positions, media); }, 1000);
+  }
+
+  uiBottomClicked(positions, media, letters) {
+    var self = this;
+    media.bottomAudio.play();
+    setTimeout(function() { self.evaluateClick(letters, 'bottom', positions, media); }, 1000);
   }
 
 } // Class CustomElement
