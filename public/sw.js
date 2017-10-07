@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "f1e62ebafbc299f8c5e8a3809e0c51f5"
+    "revision": "bae65246c9054a040c1f4e2e2de16139"
   },
   {
     "url": "audio/A.mp3",
@@ -268,7 +268,7 @@ const fileManifest = [
   },
   {
     "url": "daube-modal-compiled.js",
-    "revision": "6301e59404818da349a9d10658f47e1b"
+    "revision": "208b4002f6ddf9560379bffeb82071f0"
   },
   {
     "url": "images/apple.png",

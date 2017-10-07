@@ -107,7 +107,7 @@ template.innerHTML = `
     </daube-header-fixed>
     <daube-modal id="daubemodal">
       <img class="picture" slot="details" id="picture">
-      <button class="primary" slot="positive" id="primary">Play again</button>
+      <button class="btn primary" slot="positive" id="primary">Play again</button>
     </daube-modal>
     <daube-main-container>
       <daube-card id="topcard">
