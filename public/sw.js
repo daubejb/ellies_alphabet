@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "7297dc8c2a1741df4937930a10577488"
+    "revision": "05978ebc7124c80964047d7db3dcc9c8"
   },
   {
     "url": "audio/A.mp3",
@@ -268,11 +268,59 @@ const fileManifest = [
   },
   {
     "url": "daube-modal-compiled.js",
-    "revision": "ef301c8e435ceca57c50c6a7a56afbf2"
+    "revision": "9ade7a9c4b50a63ab531983bbcffa2dc"
+  },
+  {
+    "url": "images/apple.png",
+    "revision": "86cab9cd2c3c6136cb9eaf17cba6c786"
+  },
+  {
+    "url": "images/bananas.png",
+    "revision": "fdd9b982b093c0d148cf3fa504f3de9c"
+  },
+  {
+    "url": "images/carrots.png",
+    "revision": "9985a0ec68e3cfead7cd1fb581a456a9"
   },
   {
     "url": "images/daubedesign.ico",
     "revision": "24512db0081f46a91b8fdce36c155669"
+  },
+  {
+    "url": "images/dog.png",
+    "revision": "55c5121ea58119a4d033ddd1a2d547b6"
+  },
+  {
+    "url": "images/elephant.png",
+    "revision": "6dff63cc0a646d6c217647b3b2862d0b"
+  },
+  {
+    "url": "images/frog.png",
+    "revision": "140a259a554ab216ff98f0c1f6902176"
+  },
+  {
+    "url": "images/giraffe.png",
+    "revision": "de12d5f83703abb776cbdf548ff3897b"
+  },
+  {
+    "url": "images/hat.png",
+    "revision": "911a7063c0a6958d52ae519f31750f51"
+  },
+  {
+    "url": "images/ice_cream_cone.png",
+    "revision": "0485d16974dd3f70ddb3ba02ba9682d4"
+  },
+  {
+    "url": "images/jar.png",
+    "revision": "3d274ecbff877c981d5cc59ff2c9898f"
+  },
+  {
+    "url": "images/key.png",
+    "revision": "ad2fb3a02d88c3ba5f2c5b3c2820a433"
+  },
+  {
+    "url": "images/light_bulb.png",
+    "revision": "af9ec8df5e2b2038ec47f7485b10d64c"
   },
   {
     "url": "images/manifest/daubedesign-144x144.png",
@@ -297,6 +345,62 @@ const fileManifest = [
   {
     "url": "images/manifest/daubedesign-96x96.png",
     "revision": "42c8b57174ff192635100bf0115651d5"
+  },
+  {
+    "url": "images/monkey.png",
+    "revision": "44305fc933b17f37308d56fcdc72e75c"
+  },
+  {
+    "url": "images/napkins.png",
+    "revision": "873b97c589395bab393f370608634bb6"
+  },
+  {
+    "url": "images/owl.png",
+    "revision": "9681b898497bab65f8ee04ae25524f57"
+  },
+  {
+    "url": "images/pencil.png",
+    "revision": "39a86e17c7d48e79061ecae1071d56f0"
+  },
+  {
+    "url": "images/queen.png",
+    "revision": "2035a21d65b92ed5cc5ff112beb243ab"
+  },
+  {
+    "url": "images/roses.png",
+    "revision": "6fe09ddd99482ebf17913b4a92187628"
+  },
+  {
+    "url": "images/salad.png",
+    "revision": "3a413a1fc2ce789a025a192f3fb78ec0"
+  },
+  {
+    "url": "images/turtle.png",
+    "revision": "a068eac929aad257391e22db4b3b1012"
+  },
+  {
+    "url": "images/umbrella.png",
+    "revision": "43fd2802a28ed08c547e85672abe74dd"
+  },
+  {
+    "url": "images/vase.png",
+    "revision": "398b28aa8c9fa3cbaf872cbfdbb10d18"
+  },
+  {
+    "url": "images/watermelon.png",
+    "revision": "2c9e30e82144e8f78ce10966c91a1d7c"
+  },
+  {
+    "url": "images/xylophone.png",
+    "revision": "44013d8a567194cf0ee7d5e043fecd0c"
+  },
+  {
+    "url": "images/yarn.png",
+    "revision": "2363ceca1968787ffb49a64f2275d443"
+  },
+  {
+    "url": "images/zebra.png",
+    "revision": "9bdc33533b6b1919b3c3ae639bdda9f6"
   },
   {
     "url": "index.html",

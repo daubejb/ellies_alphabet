@@ -54,6 +54,11 @@ template.innerHTML = `
   button.primary {
     float: right;
   }
+
+  #picture {
+    display: block;
+  }
+  
   #logout {
     position: fixed;
     top: 0;
@@ -96,6 +101,7 @@ template.innerHTML = `
       <span id="logout">LOGOUT</span>
     </daube-header-fixed>
     <daube-modal id="daubemodal">
+      <img class="picture" slot="details" id="picture" src="images/apple.png">
       <button class="primary" slot="positive" id="primary">Play again</button>
     </daube-modal>
     <daube-main-container>
@@ -365,8 +371,41 @@ class AlphabetHome extends HTMLElement {
     }, {once: true});
   }
 
-  uiDisplayModal() {
+  uiDisplayModal(correctletter) {
     var modal = this.shadowRoot.querySelector('#daubemodal');
+    var correctLetter = '';
+    var image = '';
+    switch (correctLetter) {
+      case 'a': image = 'images/apple.png'; break;
+      case 'b': image = 'images/bananas.png'; break;
+      case 'c': image = 'images/carrots.png'; break;
+      case 'd': image = 'images/dog.png'; break;
+      case 'e': image = 'images/elephant.png'; break;
+      case 'f': image = 'images/frog.png'; break;
+      case 'g': image = 'images/giraffe.png'; break;
+      case 'h': image = 'images/hat.png'; break;
+      case 'i': image = 'images/ice_cream_cone.png'; break;
+      case 'j': image = 'images/jar.png'; break;
+      case 'k': image = 'images/key.png'; break;
+      case 'l': image = 'images/light_bulb.png'; break;
+      case 'm': image = 'images/monkey.png'; break;
+      case 'n': image = 'images/napkins.png'; break;
+      case 'o': image = 'images/owl.png'; break;
+      case 'p': image = 'images/pencil.png'; break;
+      case 'q': image = 'images/queen.png'; break;
+      case 'r': image = 'images/roses.png'; break;
+      case 's': image = 'images/salad.png'; break;
+      case 't': image = 'images/turtle.png'; break;
+      case 'u': image = 'images/umbrella.png'; break;
+      case 'v': image = 'images/vase.png'; break;
+      case 'w': image = 'images/watermelon.png'; break;
+      case 'x': image = 'images/xylophone.png'; break;
+      case 'y': image = 'images/yarn.png'; break;
+      case 'z': image = 'images/zebra.png'; break;
+    }
+    var picture = this.shadowRoot.getElementById('picture');
+    console.log(picture);
+    picture.src = image;
     modal.setAttribute('display','');
   }
 

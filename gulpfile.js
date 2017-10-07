@@ -16,7 +16,7 @@ gulp.task('static', () => {
 })
 
 gulp.task('images', () => {
-  return gulp.src(['./images/**/*'])
+  return gulp.src(['./images/**/*', './images/*'])
     .pipe(gulp.dest('./public/images'));
 })
 
