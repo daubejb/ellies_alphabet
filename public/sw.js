@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "05978ebc7124c80964047d7db3dcc9c8"
+    "revision": "f1e62ebafbc299f8c5e8a3809e0c51f5"
   },
   {
     "url": "audio/A.mp3",
@@ -256,19 +256,19 @@ const fileManifest = [
   },
   {
     "url": "daube-card-compiled.js",
-    "revision": "cc26dfe10137309c7ba028abb0e3fd41"
+    "revision": "ddca075c555dbb5d98f1ba4e477dcbdf"
   },
   {
     "url": "daube-header-fixed-compiled.js",
-    "revision": "612249e4b23c0c81dc33c98a96262313"
+    "revision": "967e05dc672393ca3f43b1c48e9cb692"
   },
   {
     "url": "daube-main-container-compiled.js",
-    "revision": "b0d835d1fd2ec9dc1337a83739537ecd"
+    "revision": "1b6c401de156bde4cdbc70f9957f07a2"
   },
   {
     "url": "daube-modal-compiled.js",
-    "revision": "9ade7a9c4b50a63ab531983bbcffa2dc"
+    "revision": "6301e59404818da349a9d10658f47e1b"
   },
   {
     "url": "images/apple.png",

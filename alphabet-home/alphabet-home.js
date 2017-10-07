@@ -57,8 +57,13 @@ template.innerHTML = `
 
   #picture {
     display: block;
+    max-width: 75%;
+    max-height: 75%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
   }
-  
+
   #logout {
     position: fixed;
     top: 0;
@@ -101,7 +106,7 @@ template.innerHTML = `
       <span id="logout">LOGOUT</span>
     </daube-header-fixed>
     <daube-modal id="daubemodal">
-      <img class="picture" slot="details" id="picture" src="images/apple.png">
+      <img class="picture" slot="details" id="picture">
       <button class="primary" slot="positive" id="primary">Play again</button>
     </daube-modal>
     <daube-main-container>
@@ -291,12 +296,24 @@ class AlphabetHome extends HTMLElement {
   evaluateClick(letters, choice, positions, media) {
     var correct = letters.selection;
     if (choice === correct) {
+      var letterValue = '';
+      switch (choice) {
+        case 'top':
+          letterValue = letters.top;
+          break;
+        case 'middle':
+          letterValue = letters.middle;
+          break;
+        case 'bottom':
+          letterValue = letters.bottom;
+          break;
+      }
       var color = '#00ff00';
       var message = this.brainGetRandomMessage();
       var correctAudio = new Audio('./audio/' + message + '.mp3');
       this.uiChangeSelectionColor(choice, letters, color, correctAudio);
+      this.uiDisplayModal(letterValue);
       this.resetAll(positions, media, letters);
-      this.uiDisplayModal();
     } else {
       var color = '#ff0000';
       var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
@@ -371,41 +388,42 @@ class AlphabetHome extends HTMLElement {
     }, {once: true});
   }
 
-  uiDisplayModal(correctletter) {
+  uiDisplayModal(letterValue) {
     var modal = this.shadowRoot.querySelector('#daubemodal');
-    var correctLetter = '';
     var image = '';
-    switch (correctLetter) {
-      case 'a': image = 'images/apple.png'; break;
-      case 'b': image = 'images/bananas.png'; break;
-      case 'c': image = 'images/carrots.png'; break;
-      case 'd': image = 'images/dog.png'; break;
-      case 'e': image = 'images/elephant.png'; break;
-      case 'f': image = 'images/frog.png'; break;
-      case 'g': image = 'images/giraffe.png'; break;
-      case 'h': image = 'images/hat.png'; break;
-      case 'i': image = 'images/ice_cream_cone.png'; break;
-      case 'j': image = 'images/jar.png'; break;
-      case 'k': image = 'images/key.png'; break;
-      case 'l': image = 'images/light_bulb.png'; break;
-      case 'm': image = 'images/monkey.png'; break;
-      case 'n': image = 'images/napkins.png'; break;
-      case 'o': image = 'images/owl.png'; break;
-      case 'p': image = 'images/pencil.png'; break;
-      case 'q': image = 'images/queen.png'; break;
-      case 'r': image = 'images/roses.png'; break;
-      case 's': image = 'images/salad.png'; break;
-      case 't': image = 'images/turtle.png'; break;
-      case 'u': image = 'images/umbrella.png'; break;
-      case 'v': image = 'images/vase.png'; break;
-      case 'w': image = 'images/watermelon.png'; break;
-      case 'x': image = 'images/xylophone.png'; break;
-      case 'y': image = 'images/yarn.png'; break;
-      case 'z': image = 'images/zebra.png'; break;
+    switch (letterValue) {
+      case 'A': image = 'images/apple.png'; break;
+      case 'B': image = 'images/bananas.png'; break;
+      case 'C': image = 'images/carrots.png'; break;
+      case 'D': image = 'images/dog.png'; break;
+      case 'E': image = 'images/elephant.png'; break;
+      case 'F': image = 'images/frog.png'; break;
+      case 'G': image = 'images/giraffe.png'; break;
+      case 'H': image = 'images/hat.png'; break;
+      case 'I': image = 'images/ice_cream_cone.png'; break;
+      case 'J': image = 'images/jar.png'; break;
+      case 'K': image = 'images/key.png'; break;
+      case 'L': image = 'images/light_bulb.png'; break;
+      case 'M': image = 'images/monkey.png'; break;
+      case 'N': image = 'images/napkins.png'; break;
+      case 'O': image = 'images/owl.png'; break;
+      case 'P': image = 'images/pencil.png'; break;
+      case 'Q': image = 'images/queen.png'; break;
+      case 'R': image = 'images/roses.png'; break;
+      case 'S': image = 'images/salad.png'; break;
+      case 'T': image = 'images/turtle.png'; break;
+      case 'U': image = 'images/umbrella.png'; break;
+      case 'V': image = 'images/vase.png'; break;
+      case 'W': image = 'images/watermelon.png'; break;
+      case 'X': image = 'images/xylophone.png'; break;
+      case 'Y': image = 'images/yarn.png'; break;
+      case 'Z': image = 'images/zebra.png'; break;
     }
-    var picture = this.shadowRoot.getElementById('picture');
+    var picture = this.shadowRoot.querySelector('#picture');
+    var downloadingImage = new Image();
+    downloadingImage.onload = function(){ picture.src = this.src };
+    downloadingImage.src = image;
     console.log(picture);
-    picture.src = image;
     modal.setAttribute('display','');
   }
 

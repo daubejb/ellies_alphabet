@@ -16,7 +16,7 @@ gulp.task('static', () => {
 })
 
 gulp.task('images', () => {
-  return gulp.src(['./images/**/*', './images/*'])
+  return gulp.src(['./images/**/*'])
     .pipe(gulp.dest('./public/images'));
 })
 
@@ -28,7 +28,7 @@ gulp.task('audio', () => {
 gulp.task('compile', () => {
   return gulp.src(['./*.js', '!./gulpfile.js', '!./workbox-cli-config.js'])
     .pipe(gulpif(/\.js$/, babel()))
-    .pipe(gulpif(/\.js$/, uglify()))
+    // .pipe(gulpif(/\.js$/, uglify()))
     .pipe(rename({
       suffix: "-compiled"
     }))
@@ -38,7 +38,7 @@ gulp.task('compile', () => {
 gulp.task('compile-alphabet-home', () => {
   return gulp.src(['./alphabet-home/alphabet-home.js'])
     .pipe(babel())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename({
       suffix: "-compiled"
     }))
@@ -48,28 +48,28 @@ gulp.task('compile-alphabet-home', () => {
 gulp.task('compile-daube-header-fixed', () => {
   return gulp.src(['./node_modules/daube-header-fixed/daube-header-fixed-compiled.js'])
     .pipe(babel())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('./public'));
 });
 
 gulp.task('compile-daube-main-container', () => {
   return gulp.src(['./node_modules/daube-main-container/daube-main-container-compiled.js'])
     .pipe(babel())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('./public'));
 });
 
 gulp.task('compile-daube-card', () => {
   return gulp.src(['./node_modules/daube-card/daube-card-compiled.js'])
     .pipe(babel())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('./public'));
 });
 
 gulp.task('compile-daube-modal', () => {
   return gulp.src(['./node_modules/daube-modal/daube-modal-compiled.js'])
     .pipe(babel())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('./public'));
 });
 
