@@ -221,13 +221,132 @@ var AlphabetHome = function (_HTMLElement) {
         var message = this.brainGetRandomMessage();
         var correctAudio = new Audio('./audio/' + message + '.mp3');
         this.uiChangeSelectionColor(choice, letters, color, correctAudio);
-        this.uiDisplayModal(letterValue);
+        var modalContent = this.brainCreateModalContent(letterValue);
+        this.uiDisplayModal(modalContent);
         this.resetAll(positions, media, letters);
       } else {
         var color = '#ff0000';
         var incorrectAudio = new Audio('./audio/' + 'Please_try_again' + '.mp3');
         this.uiChangeSelectionColor(choice, letters, color, incorrectAudio);
       }
+    }
+  }, {
+    key: 'brainCreateModalContent',
+    value: function brainCreateModalContent(letterValue) {
+      var image = '';
+      var sentance = '';
+      switch (letterValue) {
+        case 'A':
+          image = 'images/apple.png';
+          sentance = 'Apple starts with the letter';
+          break;
+        case 'B':
+          image = 'images/bananas.png';
+          sentance = 'Bananas begin with the letter';
+          break;
+        case 'C':
+          image = 'images/carrots.png';
+          sentance = "Carrots' first letter is";
+          break;
+        case 'D':
+          image = 'images/dog.png';
+          sentance = 'Dog starts with the letter';
+          break;
+        case 'E':
+          image = 'images/elephant.png';
+          sentance = 'Elephant begins with the letter';
+          break;
+        case 'F':
+          image = 'images/frog.png';
+          sentance = "Frog's first letter is";
+          break;
+        case 'G':
+          image = 'images/giraffe.png';
+          sentance = 'Giraffe starts with the letter';
+          break;
+        case 'H':
+          image = 'images/hat.png';
+          sentance = 'Hat begins with the letter';
+          break;
+        case 'I':
+          image = 'images/ice_cream_cone.png';
+          sentance = 'Ice cream cone begins with the letter';
+          break;
+        case 'J':
+          image = 'images/jar.png';
+          sentance = 'Jar starts with the letter';
+          break;
+        case 'K':
+          image = 'images/key.png';
+          sentance = "Key's first letter is";
+          break;
+        case 'L':
+          image = 'images/light_bulb.png';
+          sentance = 'Light bulb begins with the letter';
+          break;
+        case 'M':
+          image = 'images/monkey.png';
+          sentance = 'Monkey begins with the letter';
+          break;
+        case 'N':
+          image = 'images/napkins.png';
+          sentance = "Napkin's first letter is";
+          break;
+        case 'O':
+          image = 'images/owl.png';
+          sentance = 'Owl begins with the letter';
+          break;
+        case 'P':
+          image = 'images/pencil.png';
+          sentance = 'Pencil starts with the letter';
+          break;
+        case 'Q':
+          image = 'images/queen.png';
+          sentance = 'Queen begins with the letter';
+          break;
+        case 'R':
+          image = 'images/roses.png';
+          sentance = "Rose's first letter is";
+          break;
+        case 'S':
+          image = 'images/salad.png';
+          sentance = 'Salad begins with the letter';
+          break;
+        case 'T':
+          image = 'images/turtle.png';
+          sentance = 'Turtle starts with the letter';
+          break;
+        case 'U':
+          image = 'images/umbrella.png';
+          sentance = "Umbrella's first letter is";
+          break;
+        case 'V':
+          image = 'images/vase.png';
+          sentance = 'Vase starts with the letter';
+          break;
+        case 'W':
+          image = 'images/watermelon.png';
+          sentance = 'Watermelon begins with letter';
+          break;
+        case 'X':
+          image = 'images/xylophone.png';
+          sentance = 'Xylophone starts with the letter';
+          break;
+        case 'Y':
+          image = 'images/yarn.png';
+          sentance = 'Yarn begins with the letter';
+          break;
+        case 'Z':
+          image = 'images/zebra.png';
+          sentance = "Zebra's first letter is";
+          break;
+      }
+      var modalContent = {
+        "imageUrl": image,
+        "sentance": sentance,
+        "letter": letterValue
+      };
+      return modalContent;
     }
   }, {
     key: 'resetAll',
@@ -312,69 +431,14 @@ var AlphabetHome = function (_HTMLElement) {
     }
   }, {
     key: 'uiDisplayModal',
-    value: function uiDisplayModal(letterValue) {
+    value: function uiDisplayModal(modalContent) {
       var modal = this.shadowRoot.querySelector('#daubemodal');
-      var image = '';
-      switch (letterValue) {
-        case 'A':
-          image = 'images/apple.png';break;
-        case 'B':
-          image = 'images/bananas.png';break;
-        case 'C':
-          image = 'images/carrots.png';break;
-        case 'D':
-          image = 'images/dog.png';break;
-        case 'E':
-          image = 'images/elephant.png';break;
-        case 'F':
-          image = 'images/frog.png';break;
-        case 'G':
-          image = 'images/giraffe.png';break;
-        case 'H':
-          image = 'images/hat.png';break;
-        case 'I':
-          image = 'images/ice_cream_cone.png';break;
-        case 'J':
-          image = 'images/jar.png';break;
-        case 'K':
-          image = 'images/key.png';break;
-        case 'L':
-          image = 'images/light_bulb.png';break;
-        case 'M':
-          image = 'images/monkey.png';break;
-        case 'N':
-          image = 'images/napkins.png';break;
-        case 'O':
-          image = 'images/owl.png';break;
-        case 'P':
-          image = 'images/pencil.png';break;
-        case 'Q':
-          image = 'images/queen.png';break;
-        case 'R':
-          image = 'images/roses.png';break;
-        case 'S':
-          image = 'images/salad.png';break;
-        case 'T':
-          image = 'images/turtle.png';break;
-        case 'U':
-          image = 'images/umbrella.png';break;
-        case 'V':
-          image = 'images/vase.png';break;
-        case 'W':
-          image = 'images/watermelon.png';break;
-        case 'X':
-          image = 'images/xylophone.png';break;
-        case 'Y':
-          image = 'images/yarn.png';break;
-        case 'Z':
-          image = 'images/zebra.png';break;
-      }
       var picture = this.shadowRoot.querySelector('#picture');
       var downloadingImage = new Image();
       downloadingImage.onload = function () {
         picture.src = this.src;
       };
-      downloadingImage.src = image;
+      downloadingImage.src = modalContent.imageUrl;
       console.log(picture);
       modal.setAttribute('display', '');
     }
