@@ -52,7 +52,14 @@ template.innerHTML = `
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
   button.primary {
-    float: right;
+    position: absolute;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    bottom: 1rem;
+    left: calc(50% - 5rem);
+    height: 5rem;
+    width: 10rem;
+    font-size: 1.5rem;
   }
 
   #picture {
