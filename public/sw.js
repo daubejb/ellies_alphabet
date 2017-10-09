@@ -504,11 +504,35 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "596e20b4962c6971f70fc4848a59bce6"
+    "revision": "e8af51b279d2d37cb4f09eadc7146a60"
   },
   {
     "url": "manifest.json",
-    "revision": "572bdbfa3271e246df0b6ef5bc066b2f"
+    "revision": "eae91fbc85ce5f1af0d26f23699f3f1b"
+  },
+  {
+    "url": "webcomponents-hi-ce.js",
+    "revision": "bbf0111331ec4db7704caea0f6fcd3d9"
+  },
+  {
+    "url": "webcomponents-hi-sd-ce.js",
+    "revision": "a39a1b47d79e9775f6498d7e4a143936"
+  },
+  {
+    "url": "webcomponents-hi.js",
+    "revision": "ff02acd4dd990583b797b3691fa032a2"
+  },
+  {
+    "url": "webcomponents-lite.js",
+    "revision": "5515ef9284a196519c149cd12334a8b5"
+  },
+  {
+    "url": "webcomponents-loader.js",
+    "revision": "f13bbbbf647b7922575a7894367ddaaf"
+  },
+  {
+    "url": "webcomponents-sd-ce.js",
+    "revision": "f4a43f3a971080853ecbeb06cf3f61b0"
   }
 ];
 

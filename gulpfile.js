@@ -19,6 +19,16 @@ gulp.task('static', () => {
     .pipe(gulp.dest('./public'));
 })
 
+gulp.task('webcomponents', () => {
+  return gulp.src(['./bower_components/webcomponentsjs/webcomponents*'])
+  .pipe(gulp.dest('./public'));
+})
+
+gulp.task('es5', () => {
+  return gulp.src(['./bower_components/webcomponentsjs/custom-elements-es5-adapter.js'])
+  .pipe(gulp.dest('./public'));
+})
+
 gulp.task('images', () => {
   return gulp.src(['./images/**/*'])
     .pipe(ifEnv('production',imagemin()))
@@ -68,11 +78,6 @@ gulp.task('compile-daube-modal', () => {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('move-es5', () => {
-  return gulp.src(['./bower_components/webcomponentsjs/custom-elements-es5-adapter.js'])
-    .pipe(gulp.dest('./public'));
-});
-
 gulp.task('createServiceWorker', (cb) => {
   exec('workbox generate:sw', function(err) {
     if (err) return cb(err);
@@ -83,6 +88,8 @@ gulp.task('createServiceWorker', (cb) => {
 gulp.task('default',
   gulp.series('clean',
               'static',
+              'webcomponents',
+              'es5',
               'images',
               'audio',
               'compile-alphabet-home',
@@ -90,6 +97,5 @@ gulp.task('default',
               'compile-daube-main-container',
               'compile-daube-card',
               'compile-daube-modal',
-              'move-es5',
               'createServiceWorker')
 );
