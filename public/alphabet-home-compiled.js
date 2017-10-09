@@ -9,7 +9,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var template = document.createElement('template');
-template.innerHTML = '\n<style>\n  :host {\n    display: block;\n  }\n  .header {\n    height: 350px;\n    overflow: hidden;\n  }\n  h1 {\n    letter-spacing: 2px;\n    font-weight: 500;\n  }\n  p {\n    font-weight: 300;\n    font-size: 18px;\n  }\n  .maintitle {\n    font-size: 4.2em;\n    color: #6b8e23;\n  }\n  .footer {\n    font-size: 13px;\n  }\n  a:link, a:visited {\n    color: #6b8e23;\n    text-decoration: none;\n  }\n  a:hover {\n    text-decoration: underline;\n  }\n  .signin-view {\n    padding-top: 10%;\n    max-width: 400px;\n    margin: auto;\n    text-align: center;\n    display: block;\n  }\n  .btn {\n      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n      transition: all 0.3s cubic-bezier(.25,.8,.25,1);\n      border-color: #6b8e23;\n      border-radius: 2px;\n      height: 2.25rem;\n      background-color: #6b8e23;\n      color: white;\n      cursor: pointer;\n      margin: 0.5rem;\n  }\n  .btn:hover {\n      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\n  }\n  button.primary {\n    position: absolute;\n    margin: 1rem 0 0 0;\n    padding: 0;\n    bottom: 1rem;\n    left: calc(50% - 5rem);\n    height: 5rem;\n    width: 10rem;\n    font-size: 1.5rem;\n  }\n\n  #picture {\n    display: block;\n    max-width: 75%;\n    max-height: 75%;\n    width: auto;\n    height: auto;\n    margin: auto;\n  }\n\n  #logout {\n    position: fixed;\n    top: 0;\n    right: 0;\n    font-size: 0.9rem;\n    margin: 1.25rem 1rem 0 0;\n    cursor: pointer;\n  }\n\n  .letter {\n    position: relative;\n    margin: auto;\n    height: 5rem;\n    font-size: 5rem;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    text-align: center;\n    vertical-align: middle;\n    line-height: 5rem;\n    z-index: 5;\n    cursor: pointer;\n  }\n\n  </style>\n\n  <div class="signin-view" id="signin" style="display:none">\n    <div class="header">\n        <div class="maintitle">Ellie\'s Alphabet</div>\n        <p role="main">A simple game to help my daughter learn her alphabet letters</p>\n        <br/>\n        <button id="googlelogin" class="btn">Sign in with Google</button>\n    </div>\n    <p class="footer">Created by <a href="https://twitter.com/jeffdaube">Jeffrey B. Daube</a>.\n    Find this on <a href="https://github.com/daubejb/ellies_alphabet">GitHub</a>.</p>\n  </div>\n  <div id="home" style="display:none;">\n    <daube-header-fixed headertitle="Ellie\'s Alphabet">\n      <span id="logout">LOGOUT</span>\n    </daube-header-fixed>\n    <daube-modal id="daubemodal">\n      <img class="picture" slot="details" id="picture">\n      <button class="btn primary" slot="positive" id="primary">Play again</button>\n    </daube-modal>\n    <daube-main-container>\n      <daube-card id="topcard">\n        <div id="topletter" class="letter">A</div>\n      </daube-card>\n      <daube-card id="middlecard">\n        <div id="middleletter" class="letter">B</div>\n      </daube-card>\n      <daube-card id="bottomcard">\n        <div id="bottomletter" class="letter">C</div>\n      </daube-card>\n    </daube-main-container>\n  </div>\n';
+template.innerHTML = '\n<style>\n  :host {\n    display: block;\n  }\n  .header {\n    height: 350px;\n    overflow: hidden;\n  }\n  h1 {\n    letter-spacing: 2px;\n    font-weight: 500;\n  }\n  p {\n    font-weight: 300;\n    font-size: 18px;\n  }\n  .maintitle {\n    font-size: 4.2em;\n    color: #6b8e23;\n  }\n  .footer {\n    font-size: 13px;\n  }\n  a:link, a:visited {\n    color: #6b8e23;\n    text-decoration: none;\n  }\n  a:hover {\n    text-decoration: underline;\n  }\n  .signin-view {\n    padding-top: 10%;\n    max-width: 400px;\n    margin: auto;\n    text-align: center;\n    display: block;\n  }\n  .btn {\n      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);\n      transition: all 0.3s cubic-bezier(.25,.8,.25,1);\n      border-color: #6b8e23;\n      border-radius: 2px;\n      height: 2.25rem;\n      background-color: #6b8e23;\n      color: white;\n      cursor: pointer;\n      margin: 0.5rem;\n  }\n  .btn:hover {\n      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);\n  }\n  button.primary {\n    position: absolute;\n    margin: 1rem 0 0 0;\n    padding: 0;\n    bottom: 1rem;\n    left: calc(50% - 5rem);\n    height: 5rem;\n    width: 10rem;\n    font-size: 1.5rem;\n  }\n\n  #picture {\n    display: block;\n    max-width: 60%;\n    max-height: 60%;\n    width: auto;\n    height: auto;\n    margin: auto;\n  }\n\n  #logout {\n    position: fixed;\n    top: 0;\n    right: 0;\n    font-size: 0.9rem;\n    margin: 1.25rem 1rem 0 0;\n    cursor: pointer;\n  }\n\n  .letter {\n    position: relative;\n    margin: auto;\n    height: 5rem;\n    font-size: 5rem;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    text-align: center;\n    vertical-align: middle;\n    line-height: 5rem;\n    z-index: 5;\n    cursor: pointer;\n  }\n\n  #sentance {\n    font-size: 1.20rem;\n    font-color: #A9A9A9;\n  }\n\n  #sentance::first-letter {\n    font-size: 175%;\n    font-weight: 600;\n  }\n\n  #bigLetter {\n    font-size: 175%;\n    color: #6b8e23;\n    font-weight: 600;\n  }\n  </style>\n\n  <div class="signin-view" id="signin" style="display:none">\n    <div class="header">\n        <div class="maintitle">Ellie\'s Alphabet</div>\n        <p role="main">A simple game to help my daughter learn her alphabet letters</p>\n        <br/>\n        <button id="googlelogin" class="btn">Sign in with Google</button>\n    </div>\n    <p class="footer">Created by <a href="https://twitter.com/jeffdaube">Jeffrey B. Daube</a>.\n    Find this on <a href="https://github.com/daubejb/ellies_alphabet">GitHub</a>.</p>\n  </div>\n  <div id="home" style="display:none;">\n    <daube-header-fixed headertitle="Ellie\'s Alphabet">\n      <span id="logout">LOGOUT</span>\n    </daube-header-fixed>\n    <daube-modal id="daubemodal">\n      <p class ="sentance" slot="message" id="sentance">Test</p>\n      <img class="picture" slot="details" id="picture">\n      <button class="btn primary" slot="positive" id="primary">Play again</button>\n    </daube-modal>\n    <daube-main-container>\n      <daube-card id="topcard">\n        <div id="topletter" class="letter">A</div>\n      </daube-card>\n      <daube-card id="middlecard">\n        <div id="middleletter" class="letter">B</div>\n      </daube-card>\n      <daube-card id="bottomcard">\n        <div id="bottomletter" class="letter">C</div>\n      </daube-card>\n    </daube-main-container>\n  </div>\n';
 
 if (window.ShadyCSS) {
   ShadyCSS.prepareTemplate(template, 'alphabet-home');
@@ -290,7 +290,7 @@ var AlphabetHome = function (_HTMLElement) {
           break;
         case 'N':
           image = 'images/napkins.png';
-          sentance = "Napkin's first letter is";
+          sentance = "Napkins' first letter is";
           break;
         case 'O':
           image = 'images/owl.png';
@@ -306,7 +306,7 @@ var AlphabetHome = function (_HTMLElement) {
           break;
         case 'R':
           image = 'images/roses.png';
-          sentance = "Rose's first letter is";
+          sentance = "Roses' first letter is";
           break;
         case 'S':
           image = 'images/salad.png';
@@ -326,7 +326,7 @@ var AlphabetHome = function (_HTMLElement) {
           break;
         case 'W':
           image = 'images/watermelon.png';
-          sentance = 'Watermelon begins with letter';
+          sentance = 'Watermelon begins with the letter';
           break;
         case 'X':
           image = 'images/xylophone.png';
@@ -344,8 +344,10 @@ var AlphabetHome = function (_HTMLElement) {
       var modalContent = {
         "imageUrl": image,
         "sentance": sentance,
+        "speak": new Audio('audio/' + letterValue.toLowerCase() + '_sentance.mp3'),
         "letter": letterValue
       };
+      console.log(modalContent);
       return modalContent;
     }
   }, {
@@ -432,11 +434,16 @@ var AlphabetHome = function (_HTMLElement) {
   }, {
     key: 'uiDisplayModal',
     value: function uiDisplayModal(modalContent) {
+      var sentance = this.shadowRoot.querySelector('#sentance');
       var modal = this.shadowRoot.querySelector('#daubemodal');
       var picture = this.shadowRoot.querySelector('#picture');
+      sentance.innerHTML = modalContent.sentance + ': &nbsp' + '<span id="bigLetter">' + modalContent.letter + '</span';
       var downloadingImage = new Image();
       downloadingImage.onload = function () {
         picture.src = this.src;
+        setTimeout(function () {
+          modalContent.speak.play();
+        }, 1500);
       };
       downloadingImage.src = modalContent.imageUrl;
       console.log(picture);

@@ -64,8 +64,8 @@ template.innerHTML = `
 
   #picture {
     display: block;
-    max-width: 75%;
-    max-height: 75%;
+    max-width: 60%;
+    max-height: 60%;
     width: auto;
     height: auto;
     margin: auto;
@@ -96,6 +96,21 @@ template.innerHTML = `
     cursor: pointer;
   }
 
+  #sentance {
+    font-size: 1.20rem;
+    font-color: #A9A9A9;
+  }
+
+  #sentance::first-letter {
+    font-size: 175%;
+    font-weight: 600;
+  }
+
+  #bigLetter {
+    font-size: 175%;
+    color: #6b8e23;
+    font-weight: 600;
+  }
   </style>
 
   <div class="signin-view" id="signin" style="display:none">
@@ -113,6 +128,7 @@ template.innerHTML = `
       <span id="logout">LOGOUT</span>
     </daube-header-fixed>
     <daube-modal id="daubemodal">
+      <p class ="sentance" slot="message" id="sentance">Test</p>
       <img class="picture" slot="details" id="picture">
       <button class="btn primary" slot="positive" id="primary">Play again</button>
     </daube-modal>
@@ -390,7 +406,7 @@ class AlphabetHome extends HTMLElement {
         break;
       case 'N':
         image = 'images/napkins.png';
-        sentance = "Napkin's first letter is";
+        sentance = "Napkins' first letter is";
         break;
       case 'O':
         image = 'images/owl.png';
@@ -406,7 +422,7 @@ class AlphabetHome extends HTMLElement {
         break;
       case 'R':
         image = 'images/roses.png';
-        sentance = "Rose's first letter is";
+        sentance = "Roses' first letter is";
         break;
       case 'S':
         image = 'images/salad.png';
@@ -426,7 +442,7 @@ class AlphabetHome extends HTMLElement {
         break;
       case 'W':
         image = 'images/watermelon.png';
-        sentance = 'Watermelon begins with letter';
+        sentance = 'Watermelon begins with the letter';
         break;
       case 'X':
         image = 'images/xylophone.png';
@@ -444,8 +460,10 @@ class AlphabetHome extends HTMLElement {
     var modalContent = {
       "imageUrl": image,
       "sentance": sentance,
+      "speak": new Audio('audio/' + letterValue.toLowerCase() + '_sentance.mp3'),
       "letter": letterValue
     }
+    console.log(modalContent);
     return modalContent;
   }
 
@@ -517,10 +535,15 @@ class AlphabetHome extends HTMLElement {
   }
 
   uiDisplayModal(modalContent) {
+    var sentance = this.shadowRoot.querySelector('#sentance');
     var modal = this.shadowRoot.querySelector('#daubemodal');
     var picture = this.shadowRoot.querySelector('#picture');
+    sentance.innerHTML = modalContent.sentance + ': &nbsp' + '<span id="bigLetter">' + modalContent.letter + '</span';
     var downloadingImage = new Image();
-    downloadingImage.onload = function(){ picture.src = this.src };
+    downloadingImage.onload = function(){
+      picture.src = this.src;
+      setTimeout(function() { modalContent.speak.play(); }, 1500);
+    };
     downloadingImage.src = modalContent.imageUrl;
     console.log(picture);
     modal.setAttribute('display','');
