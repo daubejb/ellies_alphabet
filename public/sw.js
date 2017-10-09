@@ -20,7 +20,7 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "61e271f4139f46b718330694d16fe6c0"
+    "revision": "b6128cace11d621214959cf7bab36576"
   },
   {
     "url": "audio/a_sentance.mp3",

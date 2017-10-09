@@ -542,7 +542,8 @@ class AlphabetHome extends HTMLElement {
     var downloadingImage = new Image();
     downloadingImage.onload = function(){
       picture.src = this.src;
-      setTimeout(function() { modalContent.speak.play(); }, 1500);
+      modalContent.speak.playbackRate = 0.66;
+      setTimeout(function() { modalContent.speak.play(); }, 1100);
     };
     downloadingImage.src = modalContent.imageUrl;
     console.log(picture);
