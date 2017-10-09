@@ -8,7 +8,7 @@ const exec = require('child_process').exec;
 const ifEnv = require('gulp-if-env');
 const imagemin = require('gulp-imagemin');
 
-// ifEnv.set('production');
+ifEnv.set('production');
 
 gulp.task('clean', () => {
   return del(['./public/**/*'])
