@@ -8,7 +8,7 @@ const exec = require('child_process').exec;
 const ifEnv = require('gulp-if-env');
 const imagemin = require('gulp-imagemin');
 
-ifEnv.set('production');
+// ifEnv.set('production');
 
 gulp.task('clean', () => {
   return del(['./public/**/*'])
@@ -29,16 +29,6 @@ gulp.task('audio', () => {
   return gulp.src(['./audio/*'])
     .pipe(gulp.dest('./public/audio'));
 })
-
-gulp.task('compile', () => {
-  return gulp.src(['./*.js', '!./gulpfile.js', '!./workbox-cli-config.js'])
-    .pipe(gulpif(/\.js$/, babel()))
-    .pipe(ifEnv('production', gulpif(/\.js$/, uglify())))
-    .pipe(rename({
-      suffix: "-compiled"
-    }))
-    .pipe(gulp.dest('./public'));
-});
 
 gulp.task('compile-alphabet-home', () => {
   return gulp.src(['./alphabet-home/alphabet-home.js'])
@@ -83,11 +73,6 @@ gulp.task('move-es5', () => {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('move-loader', () => {
-  return gulp.src(['./bower_components/webcomponentsjs/webcomponents-loader.js'])
-    .pipe(gulp.dest('./public'));
-});
-
 gulp.task('createServiceWorker', (cb) => {
   exec('workbox generate:sw', function(err) {
     if (err) return cb(err);
@@ -100,13 +85,11 @@ gulp.task('default',
               'static',
               'images',
               'audio',
-              'compile',
               'compile-alphabet-home',
               'compile-daube-header-fixed',
               'compile-daube-main-container',
               'compile-daube-card',
               'compile-daube-modal',
               'move-es5',
-              'move-loader',
               'createServiceWorker')
 );
