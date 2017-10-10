@@ -20,27 +20,39 @@ importScripts('workbox-sw.prod.v2.0.3.js');
 const fileManifest = [
   {
     "url": "alphabet-home-compiled.js",
-    "revision": "b6128cace11d621214959cf7bab36576"
+    "revision": "948bb4754a327408942b213b105be698"
+  },
+  {
+    "url": "audio/a_pro.mp3",
+    "revision": "a204a10c829ceb0f6744e4a778c51588"
   },
   {
     "url": "audio/a_sentance.mp3",
-    "revision": "88d459b8052230167b8bd9e3aab2135f"
+    "revision": "f235832171358e112cbf6a3574a3b68b"
   },
   {
     "url": "audio/A.mp3",
     "revision": "4964588888a965dc2ded6d533e163305"
   },
   {
+    "url": "audio/b_pro.mp3",
+    "revision": "7972143dc4c653a311fb047e3871562f"
+  },
+  {
     "url": "audio/b_sentance.mp3",
-    "revision": "14956de0757750ea950fad1d6481f5c4"
+    "revision": "cf48222caf33e64bd05fe528525da8fb"
   },
   {
     "url": "audio/B.mp3",
     "revision": "f1924686135cdbc6f7c3461061aee921"
   },
   {
+    "url": "audio/c_pro.mp3",
+    "revision": "ec8671339cc67ffa373bd8d32c020718"
+  },
+  {
     "url": "audio/c_sentance.mp3",
-    "revision": "f0514f59183471a38f9afb6d6d7ec407"
+    "revision": "d3ec53dd95e0542dedcc1d4a17bc1b44"
   },
   {
     "url": "audio/C.mp3",
@@ -51,16 +63,24 @@ const fileManifest = [
     "revision": "76d0e214f09ed16a0514ad3bd432b870"
   },
   {
+    "url": "audio/d_pro.mp3",
+    "revision": "41dec510c73f419cbdc0712c37f777e7"
+  },
+  {
     "url": "audio/d_sentance.mp3",
-    "revision": "150b758f2740fa2251c13e55d373d88c"
+    "revision": "acd241a9056dfc97853ce9fc4f560194"
   },
   {
     "url": "audio/D.mp3",
     "revision": "3b312396c21775a835ae9e349955c590"
   },
   {
+    "url": "audio/e_pro.mp3",
+    "revision": "e2af4b12e945b3c7e2d8f46a112287d3"
+  },
+  {
     "url": "audio/e_sentance.mp3",
-    "revision": "80e4b93d24d19797249457cfca1b692d"
+    "revision": "4548adcd12eee8eda4f8c4dd4b384918"
   },
   {
     "url": "audio/E.mp3",
@@ -71,16 +91,24 @@ const fileManifest = [
     "revision": "bef98b01a6abb9e349fc8d8286af7a60"
   },
   {
+    "url": "audio/f_pro.mp3",
+    "revision": "f849a9638a213e06c6608a23bc8bb3c7"
+  },
+  {
     "url": "audio/f_sentance.mp3",
-    "revision": "012bdb673a1e7fb6e894f924f1a9e217"
+    "revision": "97fa24517d072d8e7b8caf95a2a92e18"
   },
   {
     "url": "audio/F.mp3",
     "revision": "632a3e6c9d2303e342a397ef8db32e7d"
   },
   {
+    "url": "audio/g_pro.mp3",
+    "revision": "dce2a931ce27fb543982e4d33b9ab7fc"
+  },
+  {
     "url": "audio/g_sentance.mp3",
-    "revision": "23686839c4fdb50eec0bc9e0e5196f3c"
+    "revision": "8d0a752c94e51a8d27013a3260e2a932"
   },
   {
     "url": "audio/G.mp3",
@@ -91,56 +119,84 @@ const fileManifest = [
     "revision": "57d4d3a7398d5ad1e7f31604adc0f6ac"
   },
   {
+    "url": "audio/h_pro.mp3",
+    "revision": "06ecc2813091fe1a03e072c00d1123b9"
+  },
+  {
     "url": "audio/h_sentance.mp3",
-    "revision": "4c874c53e67dd0f77f8d4255577b711f"
+    "revision": "df471c6453fa3def2fc440b3a2626137"
   },
   {
     "url": "audio/H.mp3",
     "revision": "7351d79c7b57739999b3c1c937b29519"
   },
   {
+    "url": "audio/i_pro.mp3",
+    "revision": "7993aa9977ba7c55cf1f1e667bd6666b"
+  },
+  {
     "url": "audio/i_sentance.mp3",
-    "revision": "3d0d7d089c6041286c3192fb15a2c251"
+    "revision": "2a6a29ea4a11c064851026004970e6c8"
   },
   {
     "url": "audio/I.mp3",
     "revision": "9d76658c8682797cd78825c18e03f781"
   },
   {
+    "url": "audio/j_pro.mp3",
+    "revision": "8b248a934ca394047ef3397fa240bae9"
+  },
+  {
     "url": "audio/j_sentance.mp3",
-    "revision": "4727fec07ffa305afb51c9c63e1c7555"
+    "revision": "97d7f779a98ee086ca8b669f88f6d75d"
   },
   {
     "url": "audio/J.mp3",
     "revision": "e17a4629743c59a1b7369b7263eb02fe"
   },
   {
+    "url": "audio/k_pro.mp3",
+    "revision": "8173f90e13f5b2442168f2bd7c8ea891"
+  },
+  {
     "url": "audio/k_sentance.mp3",
-    "revision": "77154f8fd2741caeb1f2089e9af6ea13"
+    "revision": "2d7b499ce24b3218bcb9e1d44fec50cf"
   },
   {
     "url": "audio/K.mp3",
     "revision": "2992d0cc0e1ee0e066eca223c6af76b4"
   },
   {
+    "url": "audio/l_pro.mp3",
+    "revision": "6f0473831c53516677663a1d5a228ca9"
+  },
+  {
     "url": "audio/l_sentance.mp3",
-    "revision": "c88a9dd164bc8b509ae03278230f64b9"
+    "revision": "a09bad1f514f84ebd06003e172c23123"
   },
   {
     "url": "audio/L.mp3",
     "revision": "947c84131915ba87c169cfbbc3d556d5"
   },
   {
+    "url": "audio/m_pro.mp3",
+    "revision": "6bad1b5a95a0aa0a70ccee280a4cb268"
+  },
+  {
     "url": "audio/m_sentance.mp3",
-    "revision": "768693ecea2eb84dfebf00d4219c512f"
+    "revision": "ba81e87be1124849a64959978ccb3319"
   },
   {
     "url": "audio/M.mp3",
     "revision": "65a7ec7fe635f29fa38fdd43122cbb3e"
   },
   {
+    "url": "audio/n_pro.mp3",
+    "revision": "7549864c10e9c0322323620375b87cf4"
+  },
+  {
     "url": "audio/n_sentance.mp3",
-    "revision": "f38bb8391905b7d7adeb276b0e6e3aae"
+    "revision": "dc498bb76d2f51053e13c6d192e6fff1"
   },
   {
     "url": "audio/N.mp3",
@@ -151,16 +207,24 @@ const fileManifest = [
     "revision": "61e6885a40f18f6f88949a110feb27a9"
   },
   {
+    "url": "audio/o_pro.mp3",
+    "revision": "2c7dad7f53ad5e9915e7be87046cea88"
+  },
+  {
     "url": "audio/o_sentance.mp3",
-    "revision": "2b21238cc75c4ac6813a8919e990a617"
+    "revision": "4790b06d2987d5cc47c9c3a11d498bea"
   },
   {
     "url": "audio/O.mp3",
     "revision": "927e8bd9170c636dd9ea23605e2fc0bb"
   },
   {
+    "url": "audio/p_pro.mp3",
+    "revision": "85205b8f4253509d46de3fb2c0aa6b70"
+  },
+  {
     "url": "audio/p_sentance.mp3",
-    "revision": "023c484a2ff0ad3ce7c0d68ee4af767f"
+    "revision": "cfd7df5239bdbaae8caa1c10dfdf63b6"
   },
   {
     "url": "audio/P.mp3",
@@ -171,56 +235,84 @@ const fileManifest = [
     "revision": "b056ab0ef6aa332d248e3bff94b52d11"
   },
   {
+    "url": "audio/q_pro.mp3",
+    "revision": "537c469babdfb285828baf0d1b68e89c"
+  },
+  {
     "url": "audio/q_sentance.mp3",
-    "revision": "42bb9539e425fcd6f01d96ad9b82a251"
+    "revision": "55898deb519d1470ee684ab37c70cecc"
   },
   {
     "url": "audio/Q.mp3",
     "revision": "ffcc6509281393f73fbf4cc4a7de20d4"
   },
   {
+    "url": "audio/r_pro.mp3",
+    "revision": "0a193941b5ae20b9e98c16e165a98d18"
+  },
+  {
     "url": "audio/r_sentance.mp3",
-    "revision": "0aa1ead90fd91d4b071a0f5890bb5686"
+    "revision": "f8c148c786ea6876fb45036cb0dad2a3"
   },
   {
     "url": "audio/R.mp3",
     "revision": "f8539668b4fe7140766cfb65ae934793"
   },
   {
+    "url": "audio/s_pro.mp3",
+    "revision": "e3dd49883785adeb6fad9a008b47694e"
+  },
+  {
     "url": "audio/s_sentance.mp3",
-    "revision": "80fb33f235f774c1e169691fbf4a8b38"
+    "revision": "ac3d50f34440ceab391a8c3f48276e84"
   },
   {
     "url": "audio/S.mp3",
     "revision": "b80d9b79fdb8e6c226fbb78f463939e5"
   },
   {
+    "url": "audio/t_pro.mp3",
+    "revision": "8983d1817c9068bf160bfd2710a9607b"
+  },
+  {
     "url": "audio/t_sentance.mp3",
-    "revision": "a388aa9377169855421c5779c71ee2e4"
+    "revision": "f7d22d6805cab15bef30d11aea30e44a"
   },
   {
     "url": "audio/T.mp3",
     "revision": "876e1956dc5c0e29c673be8641890c1e"
   },
   {
+    "url": "audio/u_pro.mp3",
+    "revision": "ad1f6593ffcb074fbc7f6989ed55905e"
+  },
+  {
     "url": "audio/u_sentance.mp3",
-    "revision": "da3a202b3fb6fccf065e3dd97938877e"
+    "revision": "8938e8e1b4b02cce49ece980419bb085"
   },
   {
     "url": "audio/U.mp3",
     "revision": "120a563ea225764fa4c67f91b7658faf"
   },
   {
+    "url": "audio/v_pro.mp3",
+    "revision": "d34e5f47afec13101908c04c62161d97"
+  },
+  {
     "url": "audio/v_sentance.mp3",
-    "revision": "cae8e296c7bebb55ee3799182f0f51ec"
+    "revision": "ed5a9f9d020d6f5a10dba8c7001a8f83"
   },
   {
     "url": "audio/V.mp3",
     "revision": "642630af5237741aac455cdf83d457dd"
   },
   {
+    "url": "audio/w_pro.mp3",
+    "revision": "a170b99cc23242c70ed571cc4b451d27"
+  },
+  {
     "url": "audio/w_sentance.mp3",
-    "revision": "474f9a0d945d9878611010f8b49501ff"
+    "revision": "35a946d7213c4ecabe7d930df5d493e6"
   },
   {
     "url": "audio/W.mp3",
@@ -331,20 +423,36 @@ const fileManifest = [
     "revision": "850ec2c05cc3865dba6d677ea8dcb6fe"
   },
   {
+    "url": "audio/x_pro.mp3",
+    "revision": "66fae80700cc0d122fa860f475796968"
+  },
+  {
+    "url": "audio/x_sentance.mp3",
+    "revision": "90169adcba7e59e8e95aba027b9f64a9"
+  },
+  {
     "url": "audio/X.mp3",
     "revision": "4cea3126be2c0575f8b35ec909dc803e"
   },
   {
+    "url": "audio/y_pro.mp3",
+    "revision": "2709b0c2a98783d4273c108bc4ccb979"
+  },
+  {
     "url": "audio/y_sentance.mp3",
-    "revision": "1f9837b71307816f5635d44c40a12aea"
+    "revision": "6c36123909eec316ac4cca19a0266a8f"
   },
   {
     "url": "audio/Y.mp3",
     "revision": "0e6c25beee5bbf12ad9b775bb8bfdd0e"
   },
   {
+    "url": "audio/z_pro.mp3",
+    "revision": "509a99b71835c4a61cb1508728ae62e3"
+  },
+  {
     "url": "audio/z_sentance.mp3",
-    "revision": "5e29d86db057d8e4ad6f9ebfabb43e64"
+    "revision": "d62d761e814c7071e6477936e2df4f60"
   },
   {
     "url": "audio/Z.mp3",
@@ -368,7 +476,7 @@ const fileManifest = [
   },
   {
     "url": "daube-modal-compiled.js",
-    "revision": "ebe11eba30fe4d078019d5b64ea3a089"
+    "revision": "7266309dc6faa5c330cec5030082c9dd"
   },
   {
     "url": "images/apple.png",

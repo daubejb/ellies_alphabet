@@ -1,0 +1,24 @@
+    <!-- <script>
+        window.addEventListener('WebComponentsReady', function() {
+          var comp = document.createElement("script");
+          comp.type = "text/javascript";
+          comp.src = "./alphabet-home-compiled.js";
+          document.head.appendChild(comp);
+          var comp2 = document.createElement("script");
+          comp2.type = "text/javascript";
+          comp2.src = "./daube-header-fixed-compiled.js";
+          document.head.appendChild(comp2);
+          var comp3 = document.createElement("script");
+          comp3.type = "text/javascript";
+          comp3.src = "./daube-main-container-compiled.js";
+          document.head.appendChild(comp3);
+          var comp4 = document.createElement("script");
+          comp4.type = "text/javascript";
+          comp4.src = "./daube-card-compiled.js";
+          document.head.appendChild(comp4);
+          var comp5 = document.createElement("script");
+          comp5.type = "text/javascript";
+          comp5.src = "./daube-modal-compiled.js";
+          document.head.appendChild(comp5);
+        });
+    </script> -->

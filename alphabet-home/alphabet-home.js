@@ -461,6 +461,7 @@ class AlphabetHome extends HTMLElement {
       "imageUrl": image,
       "sentance": sentance,
       "speak": new Audio('audio/' + letterValue.toLowerCase() + '_sentance.mp3'),
+      "pro": new Audio('audio/' + letterValue.toLowerCase() + '_pro.mp3'),
       "letter": letterValue
     }
     console.log(modalContent);
@@ -542,12 +543,13 @@ class AlphabetHome extends HTMLElement {
     var downloadingImage = new Image();
     downloadingImage.onload = function(){
       picture.src = this.src;
-      modalContent.speak.playbackRate = 0.66;
-      setTimeout(function() { modalContent.speak.play(); }, 1100);
-    };
+      modalContent.pro.playbackRate = 0.7;
+        setTimeout(() => { modalContent.speak.play();}, 1000);
+        setTimeout(() => { modalContent.pro.play();}, 2000);
     downloadingImage.src = modalContent.imageUrl;
     console.log(picture);
     modal.setAttribute('display','');
+    }
   }
 
   uiTopClicked (positions, media, letters) {
