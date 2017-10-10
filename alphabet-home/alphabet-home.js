@@ -463,8 +463,7 @@ class AlphabetHome extends HTMLElement {
       "speak": new Audio('audio/' + letterValue.toLowerCase() + '_sentance.mp3'),
       "pro": new Audio('audio/' + letterValue.toLowerCase() + '_pro.mp3'),
       "letter": letterValue
-    }
-    console.log(modalContent);
+    };
     return modalContent;
   }
 
@@ -539,17 +538,27 @@ class AlphabetHome extends HTMLElement {
     var sentance = this.shadowRoot.querySelector('#sentance');
     var modal = this.shadowRoot.querySelector('#daubemodal');
     var picture = this.shadowRoot.querySelector('#picture');
+    var primary = this.shadowRoot.querySelector('#primary');
+    console.log(primary);
     sentance.innerHTML = modalContent.sentance + ': &nbsp' + '<span id="bigLetter">' + modalContent.letter + '</span';
     var downloadingImage = new Image();
     downloadingImage.onload = function(){
       picture.src = this.src;
       modalContent.pro.playbackRate = 0.7;
-        setTimeout(() => { modalContent.speak.play();}, 1000);
-        setTimeout(() => { modalContent.pro.play();}, 2000);
+      modalContent.pro.addEventListener("ended", function() {
+        primary.style.visibility = "visible";
+        primary.disabled = false;
+      });
+      modalContent.speak.addEventListener("ended", function() {
+        setTimeout(function() { modalContent.pro.play();}, 300);
+      });
+      setTimeout(function() { modalContent.speak.play();}, 1000);
+    };
     downloadingImage.src = modalContent.imageUrl;
     console.log(picture);
     modal.setAttribute('display','');
-    }
+    primary.style.visibility = "hidden";
+    primary.disabled = true;
   }
 
   uiTopClicked (positions, media, letters) {
